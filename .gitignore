@@ -1,6 +1,11 @@
 .\idea
 
 CareerSearch/obj
+CareerSearch/bin
+CareerSearch/.vs
+CareerSearch/packages
+*.DS_Store
+
 # Prerequisites
 *.d
 
