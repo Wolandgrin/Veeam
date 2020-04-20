@@ -1,9 +1,12 @@
 .\idea
-
+.\vs
+.DS_Store
 CareerSearch/obj
 # Prerequisites
 *.d
-
+\bin
+\obj
+\packages
 # Compiled Object files
 *.slo
 *.lo
