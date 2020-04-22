@@ -1,5 +1,4 @@
-﻿using System;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using CareerSearch.PageObjects;
 using TechTalk.SpecFlow;
 
@@ -15,19 +14,12 @@ namespace CareerSearch.StepDefinitions
 			_page = new JobPortal(driver);
 		}
 		
-		[Given(@"I am on ""(.*)""")]
-		public void GivenIAmOn(string url)
+		[Given(@"I am on ""(.*)"" page")]
+		public void GivenIAmOnPage(string url)
 		{
 			_page.Navigate(url);
 		}
 		
-		// demonstrates running the same steps but for scenarios with different tags
-		[Given(@"I am on ""(.*)"""), Scope(Tag = "web")]
-		public void GivenOn(string url)
-		{
-			_page.Navigate(url);
-		}
-        
 		[When(@"I select ""(.*)"" in the Countries")]
 		public void WhenISelectInTheCountries(string library)
 		{

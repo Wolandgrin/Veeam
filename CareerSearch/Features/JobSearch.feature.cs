@@ -17,7 +17,7 @@ namespace CareerSearch.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class JobSearchFeature : Xunit.IClassFixture<JobSearchFeature.FixtureData>, System.IDisposable
+    public partial class VeeamCareersSearchFeature : Xunit.IClassFixture<VeeamCareersSearchFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -27,7 +27,7 @@ namespace CareerSearch.Features
 #line 1 "JobSearch.feature"
 #line hidden
         
-        public JobSearchFeature(JobSearchFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public VeeamCareersSearchFeature(VeeamCareersSearchFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -36,7 +36,8 @@ namespace CareerSearch.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Demo", "\t\tAs a User,\n\t\tI can find information about libraries this demo uses", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Veeam careers search", "\tIn order to hire new employees\n\tAs a Manager\n\tI want to have careers website sea" +
+                    "rch working", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -76,31 +77,29 @@ namespace CareerSearch.Features
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Veeam portal search")]
-        [Xunit.TraitAttribute("FeatureTitle", "DemVeeam portal search")]
-        [Xunit.TraitAttribute("Description", "Veeam portal search resuts")]
+        [Xunit.FactAttribute(DisplayName="Veeam careers search results")]
+        [Xunit.TraitAttribute("FeatureTitle", "Veeam careers search")]
+        [Xunit.TraitAttribute("Description", "Veeam careers search results")]
         [Xunit.TraitAttribute("Category", "smoke")]
-        [Xunit.TraitAttribute("Category", "debug")]
-        public virtual void VeeamPortalSearch()
+        public virtual void VeeamCareersSearchResults()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Veeam portal search results", null, new string[] {
-                        "smoke",
-                        "debug"});
-#line 6
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Veeam careers search results", null, new string[] {
+                        "smoke"});
 #line 7
- testRunner.Given("I am on \"https://careers.veeam.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
 #line 8
- testRunner.When("I select \"Romania\" in the Countries", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.Given("I am on \"https://careers.veeam.com\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.And("I select \"English\" in the Languages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.When("I select Romania in the Countries", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
- testRunner.Then("\"31\" jobs should be found", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.And("I select English in the Languages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+  testRunner.Then("31 jobs should be found", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
-
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable
@@ -108,12 +107,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                JobSearchFeature.FeatureSetup();
+                VeeamCareersSearchFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                JobSearchFeature.FeatureTearDown();
+                VeeamCareersSearchFeature.FeatureTearDown();
             }
         }
     }

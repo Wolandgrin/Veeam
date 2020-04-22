@@ -1,8 +1,5 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
-using Xunit;
 
 namespace CareerSearch.PageObjects
 {
@@ -10,7 +7,7 @@ namespace CareerSearch.PageObjects
     {
         private readonly IWebDriver _driver;
 
-        public PageObject(IWebDriver driver)
+        protected PageObject(IWebDriver driver)
         {
             _driver = driver;
         }
@@ -22,7 +19,7 @@ namespace CareerSearch.PageObjects
 
         public void TextExists(string text)
         {
-            System.Threading.Thread.Sleep(1000); // Test is much faster for Chrome than page re-rendering
+            System.Threading.Thread.Sleep(700); // Test is much faster for Chrome than page re-rendering
             var tag = _driver.FindElement(By.TagName("article")).FindElements(By.TagName("h3"))[1];
             tag.Text.Should().Be(text);
         }

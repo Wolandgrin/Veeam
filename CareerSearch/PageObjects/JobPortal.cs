@@ -14,14 +14,13 @@ namespace CareerSearch.PageObjects
 
         public void SelectCountry(string country)
         {
-            IWebElement countryElement = _driver.FindElement(By.Id("country-element"));
+            var countryElement = _driver.FindElement(By.Id("country-element"));
             countryElement.Click();
             try
             {
                 var spanElements = countryElement.FindElements(By.TagName("span"));
                 foreach (var element in spanElements)
                 {
-                    String countryAttrib = element.GetAttribute("innerHTML");
                     if (element.GetAttribute("innerHTML") != country) continue;
                     element.Click();
                     break;
