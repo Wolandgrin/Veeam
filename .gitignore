@@ -1,7 +1,8 @@
 .\idea
 .\vs
 .DS_Store
-CareerSearch/obj
+CareerSearch/Folder.DotSettings.user
+CareerSearch/TestResults
 # Prerequisites
 *.d
 \bin
