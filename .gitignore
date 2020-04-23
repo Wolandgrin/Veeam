@@ -1,8 +1,6 @@
 .\idea
 .\vs
 .DS_Store
-CareerSearch/Folder.DotSettings.user
-CareerSearch/CareerSearch.csproj.DotSettings
 CareerSearch/chromedriver.zip
 CareerSearch/TestResults
 # Prerequisites
