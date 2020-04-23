@@ -6,9 +6,9 @@
 	@smoke
 	Scenario: Veeam careers search results
 		Given I am on "https://careers.veeam.com" page
-		When I select Romania in the Countries
-		And I select English in the Languages
-		Then 31 jobs should be found
+		When I select "Romania" in the Countries
+		And I select "English" in the Languages
+		Then "30" jobs should be found
 
 #	@smoke
 #	Scenario Outline: Veeam careers search results
