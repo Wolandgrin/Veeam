@@ -1,11 +1,12 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 using System.Net;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Safari;
 
 namespace CareerSearch.Factories
@@ -17,23 +18,44 @@ namespace CareerSearch.Factories
             var browser = Environment.GetEnvironmentVariable("BROWSER") ?? "CHROME";
             var chromeVersion = Environment.GetEnvironmentVariable("CHROMEVERSION") ?? "81.0.4044.69";
             var p = (int) Environment.OSVersion.Platform;
-            
-            if (!File.Exists("../../bin/Debug/chromedriver") && ((p == 4) || (p == 128)) && browser == "CHROME")
+            var debugFolder = Environment.CurrentDirectory;
+
+            if ((p == 4) || (p == 128))
             {
-                const string archive = "../../chromedriver.zip";
-                var cli = new WebClient();
-                cli.DownloadFile(
-                    "https://chromedriver.storage.googleapis.com/" + chromeVersion + "/chromedriver_mac64.zip",
-                    archive);
-                var output = Bash("unzip " + archive + " -d ./../../bin/Debug");
+                if (!File.Exists(debugFolder + @"/chromedriver") && browser == "CHROME")
+                {
+                    const string archive = "../../chromedriver.zip";
+                    var cli = new WebClient();
+                    cli.DownloadFile(
+                        "https://chromedriver.storage.googleapis.com/" + chromeVersion + "/chromedriver_mac64.zip",
+                        archive);
+                    var output = Bash("unzip " + archive + " -d " + debugFolder);
+                }
+            }
+            else
+            {
+                if (!File.Exists(debugFolder + @"\chromedriver.exe") && browser == "CHROME")
+                {
+                    const string archive = "../../chromedriver.zip";
+                    var cli = new WebClient();
+                    cli.DownloadFile(
+                        "https://chromedriver.storage.googleapis.com/" + chromeVersion + "/chromedriver_win32.zip",
+                        archive);
+                    ZipFile.ExtractToDirectory(archive, debugFolder);
+                }
+                
+                if (!File.Exists(debugFolder + @"\MicrosoftWebDriver.exe") && browser == "EDGE")
+                {
+                    File.Move(debugFolder + @"\msedgedriver.exe", debugFolder + @"\MicrosoftWebDriver.exe");
+                }
             }
 
             return browser.ToUpperInvariant() switch
             {
                 "CHROME" => new ChromeDriver(),
+                "EDGE" => new EdgeDriver(),
                 "FIREFOX" => new FirefoxDriver(),
                 "SAFARI" => new SafariDriver(),
-                "IE" => new InternetExplorerDriver(),
                 _ => throw new ArgumentException($"Browser not yet implemented: {browser}")
             };
         }

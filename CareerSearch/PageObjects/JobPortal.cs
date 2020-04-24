@@ -14,11 +14,11 @@ namespace CareerSearch.PageObjects
 
         public void SelectCountry(string country)
         {
-            var countryElement = _driver.FindElement(By.Id("country-element"));
+            var countryElement = _driver.FindElement(By.CssSelector("#country-element"));
             countryElement.Click();
             try
             {
-                var spanElements = countryElement.FindElements(By.TagName("span"));
+                var spanElements = countryElement.FindElements(By.ClassName("selecter-item"));
                 foreach (var element in spanElements)
                 {
                     if (element.GetAttribute("innerHTML") != country) continue;
@@ -35,7 +35,7 @@ namespace CareerSearch.PageObjects
 
         public void SelectLanguage(string language)
         {
-            var languageElement = _driver.FindElement(By.Id("language"));
+            var languageElement = _driver.FindElement(By.CssSelector("#language"));
             languageElement.Click();
             try
             {

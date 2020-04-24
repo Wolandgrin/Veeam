@@ -10,7 +10,7 @@
 		And I select "English" in the Languages
 		Then "30" jobs should be found
 
-#	@smoke
+#	@smoke @debug
 #	Scenario Outline: Veeam careers search results
 #		Given I am on "https://careers.veeam.com" page
 #		When I select "<country>" in the Countries
@@ -18,6 +18,6 @@
 #		Then "<amount>" jobs should be found
 #		Examples:
 #			| country        | language | amount |
-#			| Romania        | English  | 31     | 
-#			| France         | French   | 3      | 
+#			| Romania        | English  | 30     | 
+#			| France         | French   | 2      | 
 #			| Czech Republic | Russian  | 1      |
