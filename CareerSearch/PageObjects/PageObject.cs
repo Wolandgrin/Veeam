@@ -19,7 +19,7 @@ namespace CareerSearch.PageObjects
 
         public void TextExists(string text)
         {
-            System.Threading.Thread.Sleep(500); // Test is much faster for Chrome than page re-rendering
+            System.Threading.Thread.Sleep(700); // Test is much faster for Chrome than page re-rendering
             var tag = _driver.FindElement(By.TagName("article")).FindElements(By.TagName("h3"))[1];
             tag.Text.Should().Be(text);
         }

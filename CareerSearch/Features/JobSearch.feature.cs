@@ -100,6 +100,39 @@ namespace CareerSearch.Features
             this.ScenarioCleanup();
         }
         
+        [Xunit.TheoryAttribute(DisplayName="Veeam careers search results outline")]
+        [Xunit.TraitAttribute("FeatureTitle", "Veeam careers search")]
+        [Xunit.TraitAttribute("Description", "Veeam careers search results outline")]
+        [Xunit.TraitAttribute("Category", "smoke")]
+        [Xunit.TraitAttribute("Category", "debug")]
+        [Xunit.InlineDataAttribute("Romania", "English", "30", new string[0])]
+        [Xunit.InlineDataAttribute("France", "French", "2", new string[0])]
+        [Xunit.InlineDataAttribute("Czech Republic", "Russian", "1", new string[0])]
+        public virtual void VeeamCareersSearchResultsOutline(string country, string language, string amount, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "smoke",
+                    "debug"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Veeam careers search results outline", null, @__tags);
+#line 14
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 15
+  testRunner.Given("I am on \"https://careers.veeam.com\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 16
+  testRunner.When(string.Format("I select \"{0}\" in the Countries", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 17
+  testRunner.And(string.Format("I select \"{0}\" in the Languages", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+  testRunner.Then(string.Format("\"{0}\" jobs should be found", amount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

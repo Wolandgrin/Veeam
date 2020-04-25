@@ -3,6 +3,8 @@
 .DS_Store
 CareerSearch/chromedriver.zip
 CareerSearch/TestResults
+CareerSearch/CareerSearch.csproj.DotSettings
+CareerSearch/Folder.DotSettings.user
 # Prerequisites
 *.d
 \bin

@@ -17,36 +17,36 @@ namespace CareerSearch.Factories
         {
             var browser = Environment.GetEnvironmentVariable("BROWSER") ?? "CHROME";
             var chromeVersion = Environment.GetEnvironmentVariable("CHROMEVERSION") ?? "81.0.4044.69";
+            var chromeUri = $"https://chromedriver.storage.googleapis.com/{chromeVersion}/chromedriver_";
+            
             var p = (int) Environment.OSVersion.Platform;
             var debugFolder = Environment.CurrentDirectory;
 
             if ((p == 4) || (p == 128))
             {
-                if (!File.Exists(debugFolder + @"/chromedriver") && browser == "CHROME")
+                if (!File.Exists($"{debugFolder}/chromedriver") && browser == "CHROME")
                 {
                     const string archive = "../../chromedriver.zip";
                     var cli = new WebClient();
-                    cli.DownloadFile(
-                        "https://chromedriver.storage.googleapis.com/" + chromeVersion + "/chromedriver_mac64.zip",
-                        archive);
-                    var output = Bash("unzip " + archive + " -d " + debugFolder);
+                    cli.DownloadFile($"{chromeUri}mac64.zip", archive);
+                    ZipFile.ExtractToDirectory(archive, debugFolder);
+                    // Workaround due to https://github.com/dotnet/corefx/issues/15516
+                    Bash($"chmod u+x {debugFolder}/chromedriver");
                 }
             }
             else
             {
-                if (!File.Exists(debugFolder + @"\chromedriver.exe") && browser == "CHROME")
+                if (!File.Exists($"{debugFolder}/chromedriver.exe") && browser == "CHROME")
                 {
                     const string archive = "../../chromedriver.zip";
                     var cli = new WebClient();
-                    cli.DownloadFile(
-                        "https://chromedriver.storage.googleapis.com/" + chromeVersion + "/chromedriver_win32.zip",
-                        archive);
+                    cli.DownloadFile($"{chromeUri}win32.zip", archive);
                     ZipFile.ExtractToDirectory(archive, debugFolder);
                 }
                 
-                if (!File.Exists(debugFolder + @"\MicrosoftWebDriver.exe") && browser == "EDGE")
+                if (!File.Exists($"{debugFolder}\\MicrosoftWebDriver.exe") && browser == "EDGE")
                 {
-                    File.Move(debugFolder + @"\msedgedriver.exe", debugFolder + @"\MicrosoftWebDriver.exe");
+                    File.Move($"{debugFolder}\\msedgedriver.exe", $"{debugFolder}\\MicrosoftWebDriver.exe");
                 }
             }
 
@@ -76,7 +76,7 @@ namespace CareerSearch.Factories
                 }
             };
             process.Start();
-            string result = process.StandardOutput.ReadToEnd();
+            var result = process.StandardOutput.ReadToEnd();
             process.WaitForExit();
             return result;
         }
