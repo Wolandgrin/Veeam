@@ -16,7 +16,7 @@ namespace CareerSearch.Factories
     {
         public static IWebDriver CreateDriver()
         {
-            var browser = Environment.GetEnvironmentVariable("BROWSER") ?? "FIREFOX";
+            var browser = Environment.GetEnvironmentVariable("BROWSER") ?? "CHROME";
             var chromeVersion = Environment.GetEnvironmentVariable("CHROMEVERSION") ?? "81.0.4044.69";
             var chromeUri = $"https://chromedriver.storage.googleapis.com/{chromeVersion}/chromedriver_";
             var debugFolder = Environment.CurrentDirectory;
