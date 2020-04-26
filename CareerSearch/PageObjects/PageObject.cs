@@ -1,5 +1,7 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace CareerSearch.PageObjects
 {
@@ -19,7 +21,8 @@ namespace CareerSearch.PageObjects
 
         public void TextExists(string text)
         {
-            System.Threading.Thread.Sleep(700); // Test is much faster for Chrome than page re-rendering
+            // TODO: Find a proper wait.Until(drv => Disappers drv.FindElement(By.ClassName("open"));
+            System.Threading.Thread.Sleep(1000); // Test is much faster for Chrome than page re-rendering
             var tag = _driver.FindElement(By.TagName("article")).FindElements(By.TagName("h3"))[1];
             tag.Text.Should().Be(text);
         }
