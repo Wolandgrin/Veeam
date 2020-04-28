@@ -95,7 +95,7 @@ namespace CareerSearch.Features
 #line 10
   testRunner.And("I select \"English\" in the Languages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
-  testRunner.Then("\"30\" jobs should be found", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("\"29\" jobs should be found", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -105,7 +105,7 @@ namespace CareerSearch.Features
         [Xunit.TraitAttribute("Description", "Veeam careers search results outline")]
         [Xunit.TraitAttribute("Category", "smoke")]
         [Xunit.TraitAttribute("Category", "debug")]
-        [Xunit.InlineDataAttribute("Romania", "English", "30", new string[0])]
+        [Xunit.InlineDataAttribute("Romania", "English", "29", new string[0])]
         [Xunit.InlineDataAttribute("France", "French", "2", new string[0])]
         [Xunit.InlineDataAttribute("Czech Republic", "Russian", "1", new string[0])]
         public virtual void VeeamCareersSearchResultsOutline(string country, string language, string amount, string[] exampleTags)

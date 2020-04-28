@@ -22,13 +22,17 @@ namespace CareerSearch.PageObjects
                 foreach (var element in spanElements)
                 {
                     if (element.GetAttribute("innerHTML") != country) continue;
+                    if (!element.Enabled)
+                    {
+                        // TODO: review all possible exceptions that might me catched
+                        throw new Exception($"Portal don't have any opened positions for '{country}' country");
+                    }
                     element.Click();
                     break;
                 }
             }
-            catch (Exception e)
+            catch (ElementNotInteractableException e)
             {
-                Console.WriteLine(e);
                 throw new ElementNotInteractableException($"Cannot handle country related element(s): {e.StackTrace}");
             }
         }
@@ -43,12 +47,17 @@ namespace CareerSearch.PageObjects
                 foreach (var element in labelElements)
                 {
                     if (element.Text != language) continue;
+                    if (!element.Enabled)
+                    {
+                        // TODO: review all possible exceptions that might me catched
+                        throw new Exception($"No opened positions for '{language}' language");
+                    }
                     element.Click();
                     languageElement.Click();
                     break;
                 }
             }
-            catch (Exception e)
+            catch (ElementNotInteractableException e)
             {
                 throw new Exception($"Cannot handle language related element(s): {e.StackTrace}");
             }

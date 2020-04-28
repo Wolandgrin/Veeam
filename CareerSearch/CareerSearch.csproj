@@ -16,6 +16,8 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <LangVersion>latest</LangVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -41,7 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\DriverFactory.cs" />
-    <Compile Include="Features\JobSearch.feature.cs" />
+    <Compile Include="Features\JobSearch.feature.cs">
+      <DependentUpon>JobSearch.feature</DependentUpon>
+    </Compile>
     <Compile Include="PageObjects\JobPortal.cs" />
     <Compile Include="PageObjects\PageObject.cs" />
     <Compile Include="StepDefinitions\JobSearch.Steps.cs" />

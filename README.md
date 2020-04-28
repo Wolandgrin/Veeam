@@ -19,7 +19,7 @@
  ### edgedriver v81 (works perfectly)
 
  # (Re-)Building the project (Mac OS + Rider)
- ## 1. Update .feature scenarios accordingly (at the moment correct result for RO-EN vacancies is 30)
+ ## 1. Update .feature scenarios accordingly (at the moment correct result for RO-EN vacancies is 29)
  ## 2. Remove .feature.cs file(s) and execute command from project folder to generate .feature.cs files: mono "packages/SpecFlow.2.4.1/tools/specflow.exe" GenerateAll -p CareerSearch.csproj
  ## 3. (Optional) Clean the Build
  ## 4. (Optional) Delete bin and obj folders
@@ -29,7 +29,7 @@
  ## 8. Re-launch the test
 
  # (Re-)Building the project (Windows + Rider)
- ## 1. Update .feature scenarios accordingly (at the moment correct result for RO-EN vacancies is 30)
+ ## 1. Update .feature scenarios accordingly (at the moment correct result for RO-EN vacancies is 29)
  ## 2. Remove .feature.cs file(s) and execute command from terminal: packages\SpecFlow.2.4.1\tools\specflow.exe generateall -p CareerSearch.csproj
  ## 3. (Optional) Clean the Build
  ## 4. (Optional) Delete bin and obj folder
